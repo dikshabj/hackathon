@@ -1,4 +1,7 @@
-<style>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -21,9 +24,27 @@ body {
     z-index: 1000;
 }
 .logo {
-    width: 100px;
+    width: 50px;
     height: 50px;
-    background-color: white;
+    background-image: url(./kisan_logo.jpg);
+    border-radius: 50%;
+    background-size: cover;
+    margin-bottom: 10px;
+
+    
+    
+}
+
+.text_logo{
+    margin-top: 50px;
+
+    font-size: 1rem;
+    color: white;
+    
+
+    font-family : "Dancing Script", serif;
+    
+  
 }
 .nav-links {
     display: flex;
@@ -53,8 +74,8 @@ body {
     margin: 20px;
 }
 .box {
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 250px;
     background-color: #3f9f3f;
     display: flex;
     align-items: center;
@@ -83,4 +104,3 @@ body {
     padding: 20px;
     margin-top: 20px;
 }
-</style>

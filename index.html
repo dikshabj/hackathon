@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agriculture Website</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
+     
    
 </head>
 <body>
     <div class="navbar">
-        <div class="logo"></div>
+        <div class="logo" >
+            <div>
+                <p class="text_logo">KisanSeva</p>
+             </div>
+        </div>
+        
+        
         <div class="nav-links">
             <button><a href="#about">About</a></button>
             <button><a href="#friends">Friends</a></button>
@@ -18,17 +25,32 @@
         </div>
     </div>
     <div class="container">
-        <div class="box"><button onclick="location.href='#'">Box 1</button></div>
-        <div class="box"><button onclick="location.href='#'">Box 2</button></div>
-        <div class="box"><button onclick="location.href='#'">Box 3</button></div>
-        <div class="box"><button onclick="location.href='#'">Box 4</button></div>
-        <div class="box"><button onclick="location.href='#'">Box 5</button></div>
-        <div class="box"><button onclick="location.href='#'">Box 6</button></div>
-        <div class="box"><button onclick="location.href='#'">Box 7</button></div>
-        <div class="box"><button onclick="location.href='#'">Box 8</button></div>
+        <div class="box"><button class="speak-btn" data-text="agar kuch pareshani hai toh  idhar complaint karo">
+             
+                <a href = "#complaint">Complaint</a>
+            
+        </button></div>
+        <div class="box"><button class="speak-btn" data-text="Minimum support price ke bare mein jano">
+             
+                <a href = "#complaint">MSP</a>
+            
+        </button></div>
+        <div class="box"><button class="speak-btn" data-text="mausam ka haal jaan na hai? idhar se pata chalega">
+             
+            <a href = "#complaint">Weather Check</a>
+</button></div>
+<div class="box"><button class="speak-btn" data-text="chalo dekhein kitni fasal ban gayi hain">
+             
+    <a href = "#tracker">Tracker </a>
+</button></div>
+
+        
+        
     </div>
     <div class="footer">
         &copy; 2025 Agriculture Website | All Rights Reserved
     </div>
+    <script src="./script.js"></script>
 </body>
 </html>
+
