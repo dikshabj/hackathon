@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather forecast</title>
+    <style>
+        body{
+            background : #222;
+        }
+        .card{
+            width : 90%;
+            max-width : 470px;
+            background : linear-gradient(135deg, #00feba , #5b548a);
+            color : #fff;
+            margin : 100px auto 0;
+            border-radius : 20px;
+            text-align : center;
+        }
+
+        .search{
+            width : 100%;
+            display : flex;
+            align-items : center;
+            justify-content : space-between;
+
+        }
+
+        .search input{
+            border : 0;
+            outline : 0;
+            background : #ebfffc;
+            color : #555;
+            padding : 10px 25px;
+            height : 30px;
+            border-radius : 30px;
+            flex : 1;
+            margin-right : 26px;
+            margin-bottom : 10px;
+            margin-left : 20px;
+            margin-top : 10px;
+            font-size : 18px;
+        }
+
+        
+
+        .search button{
+            border : 0;
+            outline : 0;
+            background : #ebfffc;
+            border-radius : 50%;
+            width : 50px;
+            height : 50px;
+            cursor : pointer;
+            margin-top: 5px;
+            margin-right : 20px;
+        }
+
+        .search button img{
+            width : 16px;
+
+
+        }
+
+        .weather-icon {
+            width : 170px;
+            margin-top : 30px;
+        }
+
+        .weather h1{
+            font-size : 80px;
+            font-weight : 400;
+            margin-top: 10px; ;
+
+        }
+        .weather h2{
+            font-size : 45px;
+            font-weight : 400;
+            margin-top : -10px;
+        }
+
+        .details{
+            display : flex;
+            align-items : center;
+            justify-content : space-between;
+            padding : 0px 20px;
+            margin-top : 50px;
+            margin-left : 70px;
+
+        }
+
+        .col{
+            display : flex;
+            align-items : center;
+            text-align : left;
+            margin-left : 20px;
+
+        }
+
+        .col img{
+            width : 40px;
+            margin-right : 10px;
+        }
+        .humidity, .wind {
+            font-size : 28px;
+            margin-top : -6px;
+
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" class="search-input" placeholder="enter city name" spellcheck="false">
+<button class="search-button">
+    <img src="search.png">
+</button>
+        </div>
+        <div class="weather">
+            <img src="rain2.png" class="weather-icon">
+            <h1 class="temp">
+                22°C
+            </h1>
+            <h2 class="city">
+                New York
+            </h2>
+            <div class="details">
+                <div class="col">
+                    <img src="humidity2.png">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                    <div class="col">
+                        <img src="wind.png">
+                        <div>
+                            <p class="wind">50km/hrs</p>
+                            <p>Wind</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       
+
+
+
+
+
+        const apikey = "184602baa7e397bc3ac295b29e6d1777"; // Apni API key yahan daalein
+const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+const searchbox = document.querySelector(".search-input"); 
+const searchbtn = document.querySelector(".search-button");
+const weathericon = document.querySelector(".weather-icon")
+async function checkWeather(city) {
+    try {
+        const response = await fetch(apiurl + city + `&appid=${apikey}`);
+        if (!response.ok) {
+            throw new Error("City not found");
+        }
+        const data = await response.json();
+
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML = data.main.temp + "°C";
+        document.querySelector(".humidity").innerHTML =  data.main.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+    } catch (error) {
+        document.querySelector(".city").innerHTML = "Invalid city name!";
+        console.error(error);
+    }
+
+if(data.weather[0].main == "clouds"){
+    weathericon.src = "clouds.png";
+
+}
+else if(data.weather[0].main == "rain"){
+    weathericon.src = "rain.png";
+}
+else if(data.weather[0].main == "drizzle"){
+    weathericon.src = "drizzle.png";
+}else if(data.weather[0].main == "mist"){
+    weathericon.src = "mist.png";
+}
+
+
+
+
+
+}
+
+searchbtn.addEventListener("click", () => {
+    checkWeather(searchbox.value);
+});
+
+
+
+
+
+    </script>
+</body>
+</html>
