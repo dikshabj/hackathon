@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Complaint System</title>
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+         /* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(6, 73, 6);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: rgb(15, 1, 1);
+    padding: 20px;
+    font-family : "Dancing Script", serif;
+}
+
+.complaint-form {
+    width: 70%;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgb(31, 220, 75);
+    box-shadow: 0px 0px 10px gray;
+    border-radius: 10px;
+    
+}
+
+h2 {
+    color: #000800;
+    
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#successMessage {
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+}
+    </style>
+   
+</head>
+<body>
+
+    <header>
+        <h1>Kisan Complaint System</h1>
+        <p>अपनी समस्या सरकार तक पहुँचाएं</p>
+    </header>
+
+    <section class="complaint-form">
+        <h2>शिकायत दर्ज करें</h2>
+        <form id="complaintForm">
+            <label for="name">नाम:</label>
+            <input type="text" id="name" placeholder="अपना नाम दर्ज करें" required>
+
+            <label for="phone">मोबाइल नंबर:</label>
+            <input type="tel" id="phone" placeholder="अपना मोबाइल नंबर दर्ज करें" required>
+
+            <label for="district">जिला:</label>
+            <input type="text" id="district" placeholder="आपका जिला" required>
+
+            <label for="complaint">शिकायत:</label>
+            <textarea id="complaint" placeholder="अपनी समस्या लिखें" required></textarea>
+
+            <button type="submit">शिकायत दर्ज करें</button>
+            <button type="reset">रीसेट करें</button>
+        </form>
+        <div id="successMessage"></div>
+    </section>
+
+    <script >
+        document.getElementById("complaintForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevents form from reloading page
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let district = document.getElementById("district").value;
+    let complaint = document.getElementById("complaint").value;
+
+    if (name && phone && district && complaint) {
+        document.getElementById("successMessage").innerText = "✅ आपकी शिकायत सफलतापूर्वक दर्ज हो गई है!";
+        this.reset(); // Reset form after submission
+    } else {
+        alert("कृपया सभी फ़ील्ड भरें!");
+    }
+});
+    </script>
+</body>
+</html>
