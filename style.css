@@ -35,14 +35,14 @@ body {
 }
 
 .text_logo{
-<<<<<<< HEAD
+
     margin-top: 50px;
     font-size: 1rem;
-=======
+
     margin-top: 40px;
 
     font-size: 0.9rem;
->>>>>>> ec60aa705ec498fe16d2392635d0374910abef3e
+
     color: white;
     font-family : "Dancing Script", serif; 
 }
